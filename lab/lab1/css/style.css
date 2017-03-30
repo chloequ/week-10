@@ -7,14 +7,26 @@ body {
 .map {
     position: absolute;
     right: 0px;
-    left: 340px;
+    /*left: 340px;*/
+    left: 490px;
     height: 100%;
     top: 0;
 }
-
+.miniSidebar {
+  position: absolute;
+  left: 0px;
+  width: 150px;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+  background-color: black;
+  /*padding: 20px;
+  padding-bottom: 60px;*/
+}
 .sidebar {
     position: absolute;
-    left: 0px;
+    /*left: 0px;*/
+    left: 150px;
     width: 340px;
     top: 0;
     bottom: 0;
@@ -22,6 +34,110 @@ body {
     padding: 20px;
     padding-bottom: 60px;
 }
+
+#myIcon {
+  font-size: 30px;
+  line-height: 2;
+  color: white;
+  /*left: 40px;*/
+}
+
+.miniSidebar:first-child{
+  text-align: center;
+}
+
+body > div.miniSidebar > ul > li.active > a {
+  border-radius: 0px;
+  background-color: #2fa6aa;
+  text-align:left;
+}
+body > div.miniSidebar > ul > li:nth-child(2) > a {
+  border-radius: 0px;
+  color: white;
+  text-align:left;
+}
+body > div.miniSidebar > ul > li:nth-child(3) > a {
+  border-radius: 0px;
+  color: white;
+  text-align:left;
+}
+/*body > div.sidebar > form > div {
+  width: 80%;
+  display: inline-block;
+}*/
+/*body > div.sidebar > nav {
+  margin-bottom: 0px;
+}*/
+
+
+body > div.sidebar > nav > div {
+  padding: 0px;
+  position: relative;
+}
+
+body > div.sidebar > nav > div > div.navbar-header > a {
+  font-weight: bold;
+  color: black;
+}
+
+#dropdownMenu1 {
+  border-radius: 0px;
+  float: right;
+  background-color: #2fa6aa;
+  color: white;
+  position: relative;
+}
+
+body > div.sidebar > nav > div > div.dropdown.open > ul {
+  border-radius: 0px;
+}
+
+body > div.sidebar  > form {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+body > div.sidebar > form > div {
+  display: inline-block;
+  margin-bottom: 0px;
+  border-radius: 0px;
+  width: 247px;
+}
+body > div.sidebar > form > div > input {
+  display: inline-block;
+  border-radius: 0px;
+  width: 247px;
+}
+body > div.sidebar > form > button {
+  display: inline-block;
+  float: right;
+  border-radius: 0px;
+  height: 34px;
+}
+
+/*body > div.sidebar > div:nth-child(3) {
+  position: relative;
+}*/
+body > div.sidebar > div:nth-child(3) {
+  margin-top: 10px;
+}
+
+body > div.sidebar > div:nth-child(3) > span {
+  border-radius: 0px;
+}
+
+body > div.sidebar > div:nth-child(3) > button {
+  background-color: #ce375c;
+  border-radius: 0px;
+  box-sizing: border-box;
+  padding: 3px 6px;
+  font-size: 12px;
+  border: 0px;
+  margin: 10px 0px 3px 0px;
+}
+
 
 .item {
     padding: 10px;
@@ -41,12 +157,20 @@ body {
 .sort {
     position: fixed;
     bottom: 0;
-    left: 0;
+    left: 150px;
     width: 340px;
     background-color: #fff;
     padding: 20px;
+    font-weight: bold;
 }
 
+body > div.sidebar > div.sort > span.sort-option.selected {
+  font-weight: normal;
+}
+
+body > div.sidebar > div.sort > span:nth-child(2) {
+  font-weight: normal;
+}
 .sort-option {
     margin-left: 10px;
 }
@@ -60,13 +184,82 @@ body {
     border-radius: 0;
     background-color: #fff;
     border-bottom: 1px solid #eee;
-    margin: -14px -20px 20px;
+    margin: -14px -20px 5px;
     padding: 10px 20px 15px;
 }
 
 .navbar-brand {
     font-size: 14px;
     font-weight: bold;
+}
+
+#myModal > div > div {
+  border-radius: 0px;
+}
+
+#pannelTitle {
+  width:568.720px;
+  height: 25px;
+  background-color: #ce375c;
+  color: white;
+  vertical-align: middle;
+}
+
+/*#myModal > div > div > div.modal-body > div {
+  padding: 0px;
+}*/
+
+#myModal > div > div > div.modal-body > div > div:nth-child(2) {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#myModal > div > div > div.modal-body > div > div:nth-child(2) > div:nth-child(2) > div {
+  float: right;
+}
+
+#myModal > div > div > div.modal-body > div > div:nth-child(2) > div:nth-child(2) > div > button {
+  padding: 3px 6px;
+}
+
+#myModal > div > div > div.modal-body > div > div:nth-child(3) > div.col-md-2 > p{
+  margin-bottom: 0px;
+}
+
+#myModal > div > div > div.modal-body > div > div:nth-child(4) {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#myModal > div > div > div.modal-body > div > div:nth-child(4) > div >p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#myModal > div > div > div.modal-body > div > div:nth-child(4) > div.col-md-4 > p:nth-child(1) {
+  font-weight: bold;
+}
+#myModal > div > div > div.modal-body > div > div:nth-child(4) > div:nth-child(2) > p:nth-child(1) {
+  font-weight: bold;
+}
+#myModal > div > div > div.modal-body > div > div:nth-child(4) > div:nth-child(3) > p:nth-child(1) {
+  font-size: 80px;
+  margin: 0px;
+  color:  #2fa6aa;
+}
+#myModal > div > div > div.modal-body > div > div:nth-child(5) {
+  font-weight: bold;
+}
+#myModal > div > div > div.modal-body > div > div:nth-child(6) {
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .navbar-form .form-control {
+    width: 247px;
+  }
+}
+
 }
 
 /* =============

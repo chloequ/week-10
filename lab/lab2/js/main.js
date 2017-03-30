@@ -1,7 +1,7 @@
 // Leaflet map setup
 var map = L.map('map', {
-  center: [39.923004, -75.183477],
-  zoom: 13
+  center: [41.882592, -87.637263],
+  zoom: 12
 });
 
 var Stamen_TonerLite = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
@@ -28,8 +28,8 @@ var Stamen_TonerLite = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolab
 // To add visualizations created with the Analysis feature, you will need to export the data to a
 // GeoJSON. From there, you can either import the GeoJSON to Carto or use Leaflet's L.geoJson.
 
-var cartoUserName = 'jfreink';
-var cartoVizId = '1f7c9af2-1088-11e7-9c60-0e05a8b3e3d7';
+var cartoUserName = 'chloequ';
+var cartoVizId = '417ce958-110b-11e7-87f9-0e233c30368f';
 
 var layerUrl = 'https://'+cartoUserName+'.carto.com/api/v2/viz/'+cartoVizId+'/viz.json';
 
@@ -38,4 +38,57 @@ cartodb.createLayer(map, layerUrl)
     layer.addTo(map);
   }).on('error', function(err) {
     console.log(err);
+  });
+
+  var myStyle = function(feature) {
+    switch(feature.properties.cluster_no){
+      case 0: return {
+       radius: 8,
+       color: '#42ebf4',
+       weight: 2,
+       fillOpacity: 0,
+       opacity: 0.3
+     };
+     case 1: return {
+       radius: 8,
+       color: '#41aff4',
+       weight: 2,
+       fillOpacity: 0,
+       opacity: 0.3
+     };
+     case 2: return {
+       radius: 8,
+       color: '#7941f4',
+       weight: 2,
+       fillOpacity: 0,
+       opacity: 0.3
+     };
+     case 3: return {
+       radius: 8,
+       color: '#a341f4',
+       weight: 2,
+       fillOpacity: 0,
+       opacity: 0.3
+     };
+     default: return {
+       radius: 8,
+       color: '#e241f4',
+       weight: 2,
+       fillOpacity: 0,
+       opacity: 0.3
+     };
+   }
+ };
+
+  var myAnalysis = $.ajax("https://raw.githubusercontent.com/chloequ/myData/master/green_roofs_map%20(1).geojson");
+  myAnalysis.done(function(data){
+    var myData = JSON.parse(data);
+    console.log(myData);
+    var myLayer = L.geoJson(myData, {
+      pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, myStyle(feature));
+      }
+    });
+    myLayer.addTo(map);
+    // map.removeLayer(myLayer);
   });
